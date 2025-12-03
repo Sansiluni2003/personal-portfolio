@@ -82,7 +82,7 @@ const projects: Project[] = [
     period: "2025",
     description:
       "A modern, responsive portfolio website showcasing my projects, skills, and experience. Features interactive animations, dark theme design, and a functional contact form with email integration.",
-    image: "/portfolio.png  ",
+    image: "/portfolio.png ",
     githubRepo: "https://github.com/Sansiluni2003/Personal_Portfolio.git",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Nodemailer", "Vercel"],
     role: "Full Stack Developer",
