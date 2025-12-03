@@ -120,7 +120,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2 }}
-              href="/Ihansa%20Sansiluni%20_SE_CV.pdf"
+              href="/Ihansa%20Sansiluni%20_SE__CV.pdf"
               download
               className="inline-flex items-center gap-2 px-8 py-3 rounded-lg border-2 border-accent-cyan text-white font-semibold hover:bg-accent-cyan hover:text-primary-dark transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:shadow-[0_0_30px_rgba(0,240,255,0.6)]"
             >
