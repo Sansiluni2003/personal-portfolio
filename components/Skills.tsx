@@ -43,10 +43,14 @@ const getIconUrl = (skillName: string): string => {
     "Spring Boot": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
     "MySQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
     "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+    "PostgreSQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
     "MSSQL": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftsqlserver.svg",
     "Firebase": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
     "Figma": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
     "Canva": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg",
+    "Postman": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/postman.svg",
+    "GitHub": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
   };
   return iconMap[skillName] || "";
 };
@@ -82,6 +86,7 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "MySQL" },
       { name: "MongoDB" },
+      { name: "PostgreSQL" },
       { name: "MSSQL" },
       { name: "Firebase" },
     ],
@@ -91,6 +96,14 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Figma" },
       { name: "Canva" },
+    ],
+  },
+  {
+    title: "Tools and Platforms",
+    skills: [
+      { name: "Postman" },
+      { name: "GitHub" },
+      { name: "Docker" },
     ],
   },
 ];
@@ -244,7 +257,15 @@ export default function Skills() {
                                 alt={skill.name}
                                 width={100}
                                 height={100}
-                                className={`object-contain ${skill.name === "MSSQL" ? "mssql-red-icon" : ""}`}
+                                className={`object-contain ${
+                                  skill.name === "MSSQL" 
+                                    ? "mssql-red-icon" 
+                                    : skill.name === "Postman" 
+                                    ? "postman-orange-icon"
+                                    : skill.name === "GitHub"
+                                    ? "github-icon"
+                                    : ""
+                                }`}
                                 unoptimized
                               />
                             )}

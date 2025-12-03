@@ -2,12 +2,14 @@
 
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import Image from "next/image";
 
 interface Project {
   title: string;
   period: string;
   description: string;
-  githubRepo?: string;
+  image: string;
+  githubRepo?: string | string[];
   liveDemo?: string;
   techStack: string[];
   role: string;
@@ -15,51 +17,78 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "MarketPlace for Doctors - Level 2 Software Development Project",
+    title: "MediConnect - Marketplace for Doctors",
     period: "2024-2025",
     description:
-      "A comprehensive marketplace platform connecting doctors with patients. Features include appointment booking, medical records management, and secure payment processing. Built with modern web technologies for scalability and performance.",
-    githubRepo: "https://github.com/yourusername/marketplace-doctors",
-    liveDemo: "https://marketplace-doctors.vercel.app",
+      "Your Gateway to Quality Healthcare. Connect with top healthcare institutions, advance your medical career, and make a difference in patient care.",
+    image: "/mediconnect.png",
+    githubRepo: "https://github.com/LiyanageDLMJ/Medi_connect.git",
     techStack: [
       "React.js",
-      "TypeScript",
-      "Node.js",
+      "Next.js",
       "Express.js",
       "MongoDB",
-      "Cloudinary",
       "Tailwind CSS",
+      "JWT",
+      "RESTful API",
     ],
-    role: "Fullstack Developer",
+    role: "Full Stack Developer",
   },
   {
-    title: "Smart Hospital Queue & Appointment Management System",
+    title: "Smart Hospital Queue Management ",
     period: "2024 - Ongoing",
     description:
-      "An intelligent queue management system for hospitals that optimizes patient flow and reduces waiting times. Includes real-time SMS notifications, email reminders, and an intuitive admin dashboard.",
-    githubRepo: "https://github.com/yourusername/hospital-queue",
+      "Skip the Wait, Book Smart. Experience hassle-free healthcare with smart queue and appointment management system that reduces waiting times by 70% with 24/7 online booking.",
+    image: "/smart hospital.png",
+    githubRepo: "https://github.com/Sansiluni2003/Smart_Hospital_queue-management.git",
     techStack: [
       "Next.js",
       "Python",
       "MySQL",
       "RESTful API",
-      "JSON Web Tokens (JWT)",
+      "JWT",
       "OAuth 2.0",
-      "Vonage (SMS)",
-      "NodeMailer (Email)",
+      "Vonage SMS",
+      "NodeMailer",
     ],
-    role: "Fullstack Developer",
+    role: "Full Stack Developer",
+  },
+  {
+    title: "GearUp - Vehicle Service Management",
+    period: "2025",
+    description:
+      "10 Years of Excellence Since 2005. Comprehensive vehicle service management system for booking appointments, managing services, and tracking vehicle maintenance history.",
+    image: "/ead.png",
+    githubRepo: [
+      "https://github.com/AsithaUdara/GearUp-frontent",
+      "https://github.com/AsithaUdara/GearUp-backend"
+    ],
+    techStack: ["Next.js", "spring boot", "postgreSQL", "Firebase", "Tailwind CSS","Docker"],
+    role: "Full Stack Developer",
   },
   {
     title: "Travel Guide - Travel Planning Platform",
     period: "2024",
     description:
-      "A user-friendly travel planning platform that helps users discover destinations, create itineraries, and share travel experiences with the community.",
-    githubRepo: "https://github.com/yourusername/travel-guide",
-    liveDemo: "https://travel-guide.vercel.app",
-    techStack: ["React.js", "Node.js", "MongoDB", "Express.js", "Tailwind CSS"],
-    role: "Fullstack Developer",
+      "Developed as part of the Innovate with Ballerina competition by IEEE University of Moratuwa. This web-based travel platform enables users to explore travel packages, book dream trips, and manage bookings with ease.",
+    image: "/travel.png",
+    githubRepo: "https://github.com/Sansiluni2003/The-tech-Tribe.git",
+    liveDemo: "https://www.linkedin.com/feed/update/urn:li:activity:7254356115734331392/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFLvdk4BYYdLVJ6ntP6kHmab-vnI1RFFljs",
+    techStack: ["HTML", "CSS", "JavaScript", "Ballerina"],
+    role: "Full Stack Developer",
   },
+  {
+    title: "Personal Portfolio Website",
+    period: "2025",
+    description:
+      "A modern, responsive portfolio website showcasing my projects, skills, and experience. Features interactive animations, dark theme design, and a functional contact form with email integration.",
+    image: "/portfolio.png  ",
+    githubRepo: "https://github.com/Sansiluni2003/Personal_Portfolio.git",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Nodemailer", "Vercel"],
+    role: "Full Stack Developer",
+  },
+  
+
 ];
 
 export default function Projects() {
@@ -68,7 +97,7 @@ export default function Projects() {
       id="portfolio"
       className="min-h-screen flex items-center justify-center px-6 py-20"
     >
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -87,103 +116,122 @@ export default function Projects() {
             <div className="w-24 h-1 bg-accent-cyan mx-auto"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="bg-primary-darker p-6 rounded-lg border border-accent-cyan/30 hover:border-accent-cyan transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] group"
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-white group-hover:text-accent-cyan transition-colors">
-                    {project.title}
-                  </h3>
-                  <span className="text-accent-cyan font-semibold text-sm whitespace-nowrap ml-2">
-                    {project.period}
-                  </span>
-                </div>
-
-                <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div className="space-y-3 mb-4">
-                  {project.githubRepo && (
-                    <div className="flex items-center gap-2">
-                      <FaGithub className="text-accent-cyan" />
-                      <span className="text-gray-400 text-sm">Github repo:</span>
-                      <a
-                        href={project.githubRepo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-accent-cyan hover:underline text-sm"
-                      >
-                        Link
-                      </a>
-                    </div>
-                  )}
-
-                  {project.liveDemo && (
-                    <div className="flex items-center gap-2">
-                      <FaExternalLinkAlt className="text-accent-cyan" />
-                      <span className="text-gray-400 text-sm">Live demo:</span>
-                      <a
-                        href={project.liveDemo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-accent-cyan hover:underline text-sm"
-                      >
-                        View
-                      </a>
-                    </div>
-                  )}
-
-                  <div className="flex items-center gap-2">
-                    <span className="text-gray-400 text-sm">Tech stack:</span>
-                    <span className="text-gray-300 text-sm">
-                      {project.techStack.join(", ")}
-                    </span>
+          {/* Horizontal Scrollable Container */}
+          <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-accent-cyan/50 scrollbar-track-accent-cyan/10">
+            <div className="flex gap-6 min-w-max px-2">
+              {projects.map((project, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-primary-darker rounded-xl overflow-hidden border border-accent-cyan/30 hover:border-accent-cyan transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] group w-[380px] flex-shrink-0"
+                >
+                  {/* Project Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary-darker via-primary-darker/50 to-transparent opacity-60"></div>
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    <span className="text-gray-400 text-sm">Role:</span>
-                    <span className="text-accent-cyan text-sm font-semibold">
-                      {project.role}
+                  {/* Project Content */}
+                  <div className="p-5">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-lg font-bold text-white group-hover:text-accent-cyan transition-colors flex-1 line-clamp-2">
+                        {project.title}
+                      </h3>
+                    </div>
+                    
+                    <span className="inline-block text-accent-cyan font-semibold text-xs bg-accent-cyan/10 px-3 py-1 rounded-full mb-3">
+                      {project.period}
                     </span>
-                  </div>
-                </div>
 
-                <div className="flex gap-2 pt-4">
-                  {project.githubRepo && (
-                    <motion.a
-                      href={project.githubRepo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex-1 px-4 py-2 bg-accent-cyan/10 border border-accent-cyan rounded-lg text-accent-cyan text-center text-sm font-semibold hover:bg-accent-cyan hover:text-primary-dark transition-all duration-300"
-                    >
-                      GitHub
-                    </motion.a>
-                  )}
-                  {project.liveDemo && (
-                    <motion.a
-                      href={project.liveDemo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex-1 px-4 py-2 bg-accent-cyan/10 border border-accent-cyan rounded-lg text-accent-cyan text-center text-sm font-semibold hover:bg-accent-cyan hover:text-primary-dark transition-all duration-300"
-                    >
-                      Live Demo
-                    </motion.a>
-                  )}
-                </div>
-              </motion.div>
-            ))}
+                    <p className="text-gray-300 mb-3 text-xs leading-relaxed line-clamp-2">
+                      {project.description}
+                    </p>
+
+                    {/* Tech Stack Pills */}
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      {project.techStack.slice(0, 4).map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2 py-0.5 bg-accent-cyan/10 text-accent-cyan text-[10px] rounded-full border border-accent-cyan/30"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.techStack.length > 4 && (
+                        <span className="px-2 py-0.5 bg-accent-cyan/10 text-accent-cyan text-[10px] rounded-full border border-accent-cyan/30">
+                          +{project.techStack.length - 4}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Role */}
+                    <div className="mb-3 flex items-center gap-2">
+                      <span className="text-gray-400 text-xs">Role:</span>
+                      <span className="text-accent-cyan text-xs font-semibold">
+                        {project.role}
+                      </span>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-2 pt-3 border-t border-accent-cyan/20">
+                      {project.githubRepo && (
+                        Array.isArray(project.githubRepo) ? (
+                          <>
+                            {project.githubRepo.map((repo, i) => (
+                              <motion.a
+                                key={i}
+                                href={repo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="flex-1 px-3 py-2 bg-accent-cyan/10 border border-accent-cyan rounded-lg text-accent-cyan text-center text-xs font-semibold hover:bg-accent-cyan hover:text-primary-dark transition-all duration-300 flex items-center justify-center gap-1.5"
+                              >
+                                <FaGithub className="text-sm" />
+                                {i === 0 ? "Frontend" : "Backend"}
+                              </motion.a>
+                            ))}
+                          </>
+                        ) : (
+                          <motion.a
+                            href={project.githubRepo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="flex-1 px-3 py-2 bg-accent-cyan/10 border border-accent-cyan rounded-lg text-accent-cyan text-center text-xs font-semibold hover:bg-accent-cyan hover:text-primary-dark transition-all duration-300 flex items-center justify-center gap-1.5"
+                          >
+                            <FaGithub className="text-sm" />
+                            GitHub
+                          </motion.a>
+                        )
+                      )}
+                      {project.liveDemo && (
+                        <motion.a
+                          href={project.liveDemo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="flex-1 px-3 py-2 bg-accent-cyan text-primary-dark rounded-lg text-center text-xs font-semibold hover:bg-accent-cyan/90 transition-all duration-300 flex items-center justify-center gap-1.5"
+                        >
+                          <FaExternalLinkAlt className="text-xs" />
+                          Live Demo
+                        </motion.a>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

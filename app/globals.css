@@ -149,3 +149,13 @@ html {
 .mssql-red-icon {
   filter: brightness(0) saturate(100%) invert(16%) sepia(94%) saturate(7472%) hue-rotate(358deg) brightness(104%) contrast(113%);
 }
+
+/* Postman icon orange color filter */
+.postman-orange-icon {
+  filter: brightness(0) saturate(100%) invert(53%) sepia(97%) saturate(2631%) hue-rotate(350deg) brightness(102%) contrast(101%);
+}
+
+/* GitHub icon - make it brighter and more visible */
+.github-icon {
+  filter: brightness(1.5) contrast(1.2) invert(1);
+}
