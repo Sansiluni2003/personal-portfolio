@@ -52,7 +52,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6 flex flex-col justify-center items-start w-full"
+            className="space-y-6 flex flex-col justify-center items-start w-full md:pl-16 lg:pl-24"
           >
             <motion.p
               initial={{ opacity: 0, y: 20 }}
